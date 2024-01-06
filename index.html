@@ -72,21 +72,67 @@
   opacity: 1;
   transform: translate(-50%, -50%) scale(2);
 }
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+img {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  animation: pulse 2s infinite alternate
+
+}
+@keyframes pulse {
+  0% {
+    transform: rotate(-5deg); /* Rotate slightly left */
+    transform: scale(1);
+  }
+  50% {
+    transform: rotate(5deg); /* Rotate slightly right */
+  }
+  100% {
+    transform: rotate(-5deg); /* Back to the initial rotation */
+    transform: scale(1.2);
+  }
+}
+
+@keyframes lightning {
+  0% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffff00, 0 0 25px #ffff00, 0 0 30px #ffff00, 0 0 35px #ffff00; /* Initial text shadow */
+  }
+  100% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffff00, 0 0 25px #ffff00, 0 0 30px #ffff00, 0 0 35px #ffff00, 0 0 40px #ffff00, 0 0 45px #ffff00; /* Enhanced text shadow */
+  }
+}
+
+h1 {
+  animation: lightning 2s infinite;
+
+}
+
 
   </style>
 </head>
 <body>
+
   <header>
     <h1>Minecraft roamer</h1>
   </header>
-<video src=""></video>
+ <img src="creeper.jpg" alt="creeper">
+  <div class="video-container">
+  <video width="920" height="620" controls>
+    <source src="minecraftVideo.mp4" type="video/mp4">
+  </video>
+</div>
   <details>
     <summary>Notes</summary>
     <p>This section contains details about the provided Python script:</p>
     <ul>
-      <li>The script simulates keyboard and mouse actions.</li>
-      <li>It uses Python libraries like `keyboard` and `pyautogui`.</li>
-      <li>Part of the script (mouse function) can be omitted if you have <a href="https://www.minecraft-guides.com/mod/sophisticated-backpacks/">sophisticated backpack mod with Feeding Upgrade</a> </li>
+      <li>The script simulates keyboard and mouse action</li>
+      <li>It uses 'keyboard' and 'pyautogui' libraries</li>
+      <li>You can omit part of the script (the mouse function) if you have <a href="https://www.minecraft-guides.com/mod/sophisticated-backpacks/" target="_blank">sophisticated backpack mod </a> with Feeding Upgrade in Minecraft </li>
       <!-- Add more details as needed -->
     </ul>
   </details>

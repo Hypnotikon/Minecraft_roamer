@@ -3,10 +3,10 @@ import time
 import pyautogui
 
 
-def mouse(interval):   #every 3 minute eat one chicken
+def mouse(interval):   #Use a food item from the hotbar every 3 minutes.
     if interval % 1800 == 0:
         pyautogui.mouseDown(button='right')
-        for i in range(30):
+        for i in range(50):
             keyboard.press('w')
             time.sleep(0.1)
         pyautogui.mouseUp(button='right')
@@ -44,5 +44,5 @@ def type_w_for_duration(duration_seconds):
                 mouse(interval)
 
 if __name__ == "__main__":
-    duration = 999999999999  # Duration in seconds to type 'W'
+    duration = 999999999999  # Duration in seconds to type 'w'
     type_w_for_duration(duration)
