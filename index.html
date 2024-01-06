@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code Details Template</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px; 
+
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    details {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    code {
+      display: block;
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    .flashlight-btn {
+  padding: 15px 25px;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s, box-shadow 0.3s;
+  z-index: 1; /* Ensure text is above pseudo-element */
+}
+
+.flashlight-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: -1; /* Place behind the button text */
+}
+
+.flashlight-btn:hover {
+  color: #fff; /* Ensure text color remains white on hover */
+  box-shadow: 0 0 20px 0 #3498db;
+}
+
+.flashlight-btn:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(2);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Minecraft roamer</h1>
+  </header>
+<video src=""></video>
+  <details>
+    <summary>Notes</summary>
+    <p>This section contains details about the provided Python script:</p>
+    <ul>
+      <li>The script simulates keyboard and mouse actions.</li>
+      <li>It uses Python libraries like `keyboard` and `pyautogui`.</li>
+      <li>Part of the script (mouse function) can be omitted if you have <a href="https://www.minecraft-guides.com/mod/sophisticated-backpacks/">sophisticated backpack mod with Feeding Upgrade</a> </li>
+      <!-- Add more details as needed -->
+    </ul>
+  </details>
+
+  <details>
+    <summary>Python Code</summary>
+    <code>
+        import keyboard
+        import time
+        import pyautogui
+        
+        
+        def mouse(interval):   #every 3 minute eat one chicken
+            if interval % 1800 == 0:
+                pyautogui.mouseDown(button='right')
+                for i in range(30):
+                    keyboard.press('w')
+                    time.sleep(0.1)
+                pyautogui.mouseUp(button='right')
+        
+        
+        
+        def type_w_for_duration(duration_seconds):
+            interval = 1
+            print(f"i for start, i again for pause, o for end")
+        
+            while True:
+                if keyboard.is_pressed('o'):  # Check if 'o' key is pressed to exit before starting
+                    print("end")
+                    return
+        
+                if keyboard.is_pressed('i'):
+                    time.sleep(0.3)  # Wait for 'i' key press to start
+                    print(f"start")
+                    start_time = time.time()
+        
+                    while (time.time() - start_time) < duration_seconds:
+                        if keyboard.is_pressed('i'):  # Check if 'k' key is pressed to stop
+                            time.sleep(0.3)
+                            print("pause")
+                            break
+        
+                        if keyboard.is_pressed('o'):  # Check if 'o' key is pressed to exit
+                            print("Exiting...")
+                            return
+        
+                        keyboard.press('w')
+                        time.sleep(0.1)  # Adjust this delay if needed
+                        keyboard.release('w')
+                        interval = interval + 1
+                        mouse(interval)
+        
+        if __name__ == "__main__":
+            duration = 999999999999  # Duration in seconds to type 'W'
+            type_w_for_duration(duration)
+      </code>
+  </details>
+  
+ <button class="flashlight-btn"><a href="script.py" download=""></a>Download Script</button> 
+ </body>
+</html>
