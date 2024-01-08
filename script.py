@@ -46,3 +46,6 @@ def type_w_for_duration(duration_seconds):
 if __name__ == "__main__":
     duration = 999999999999  # Duration in seconds to type 'w'
     type_w_for_duration(duration)
+
+
+# enjoy
